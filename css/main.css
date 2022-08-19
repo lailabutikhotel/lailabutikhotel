@@ -5,7 +5,7 @@
 }
 
 .tm-header{
-    background: #211f17;
+    background: #d1c06d;
     display: block;
     padding: 20px;
     
@@ -51,11 +51,11 @@
 }
 .tm-nav div ul li a:hover{
     
-    color: #ec3c6a;
+    color: #7aa4d3;
 }
 
 .tm-list::after{
-    content: url("../images/circle.png");
+    /* content: url("../images/circle.png"); */
   
    
 }
@@ -132,7 +132,7 @@ padding: 5%;
 }
 
 .tm-rooms a p:hover{
-    color: #ec3c6a;
+    color: #7aa4d3;
 
 
 }
@@ -241,7 +241,7 @@ padding-bottom: 10%;
 /* Make reservation */
 
 .tm-res{
-    background: #cc4151;
+    background: #7aa4d3;
     padding: 2%;
 }
 
@@ -262,7 +262,7 @@ padding-bottom: 10%;
 }
 
 .tm-resbutton p:hover{
-    color: #ec3c6a;
+    color: #7aa4d3;
     background: #fff;
 }
 
@@ -293,7 +293,7 @@ padding-bottom: 10%;
 }
 
 .tm-us .bold, .tm-address .bold{
-    color: #ec3c6a;
+    color: #7aa4d3;
     font-size: 1.5vw;
     font-weight: 700;
     padding-bottom: 4%;
@@ -339,7 +339,7 @@ padding-bottom: 10%;
 /* Explore page */
 
 .tm-main{
-      background: #cc4151;
+      background: #7aa4d3;
     padding: 2%;
 }
 
@@ -474,7 +474,7 @@ display: inline-block;
 }
 
 .tm-trans div .bold{
-    color: #ff8d9a;
+    color: #7aa4d3;
 
 }
 
@@ -506,7 +506,7 @@ display: inline-block;
 
  div.vertical-line{
       width: 0.15%; 
-      background-color:  #ec3d68; 
+      background-color:  #7aa4d3; 
       height: 90%; 
       position: absolute;
          top: 6%;
@@ -545,15 +545,15 @@ input::-webkit-input-placeholder {
 }
 
 input, select, textarea{
-    color: #ec3d68;
+    color: #7aa4d3;
 }
 
 input::-webkit-input-placeholder{
-    color: #f17c94;
+    color: #7aa4d3;
 }
 
 textarea::-webkit-input-placeholder{
-    color: #f17c94;
+    color: #7aa4d3;
 }
 
 
@@ -648,8 +648,8 @@ input[type=submit]{
 }
 
 input[type=submit]:hover{
-    color: #ec3d68;
-    border: 1px solid #ec3d68;
+    color: #7aa4d3;
+    border: 1px solid #7aa4d3;
 }
 
 input[type=submit]:focus{
