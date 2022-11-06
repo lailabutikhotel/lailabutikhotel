@@ -5,7 +5,7 @@
 }
 
 .tm-header{
-    background: #d1c06d;
+
     display: block;
     padding: 20px;
     
@@ -163,7 +163,7 @@ padding: 5%;
     max-width: 30%;
     width: 30%;
     margin: 1.5% 12% 1.5% 10%;  
-    background-color: #d1c06d;
+
     border-radius: 20px;
 }
 
@@ -281,7 +281,6 @@ padding-bottom: 10%;
 
 .tm-resbutton p:hover{
     color: #7aa4d3;
-    background: #fff;
 }
 
 
@@ -375,7 +374,7 @@ padding-bottom: 10%;
 /* Explore sections */
 
 .tm-exp1, .tm-exp2{
-    background: #d1c06d;
+
     border-radius: 25px;
     
 }
@@ -454,7 +453,6 @@ padding-bottom: 10%;
 .tm-room1{
     max-width: 33.33333%;
     width: 33.333333%;
-    background: #d1c06d;
     
 display: inline-block;
     margin: 0px;
@@ -523,7 +521,7 @@ display: inline-block;
 
 .tm-booking
 {
-     background: #d1c06d;
+
     position: relative;
 }
 .tm-form1, .tm-form2{
@@ -656,7 +654,7 @@ textarea {
 
 input[type=submit]{
     display: block;
-    background: #d1c06d;
+
     padding: 1% 3%;
      color: #fff;
     border: 1px solid #fff;
@@ -772,7 +770,7 @@ input[type=submit]:focus{
   bottom: 100px;
   right: 40px;
   padding: 1%;
-  background: #d1c06d;
+
     border : 3px solid;
   color: #fff;
    opacity: 0.7;
