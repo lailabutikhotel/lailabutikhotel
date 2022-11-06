@@ -1,4 +1,4 @@
-# The kuzeyegedenizcilik47 website
+# The Laila Hotel website
 
 This repo houses the assets used to build the kuzeyegedenizcilik47 website, available at https://goharbor.io.
 
