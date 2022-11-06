@@ -1,32 +1,93 @@
-# sumitmangela.github.io/hotel
+# The kuzeyegedenizcilik47 website
 
-It is a front-end for a simple hotel booking site. The site is developed using HTML/CSS and jquery plugins are used to provide extra features. There are total 5 webpages of the website.
+This repo houses the assets used to build the kuzeyegedenizcilik47 website, available at https://goharbor.io.
 
-* Home Page - 
-It is a indroductionary page about the hotel itself. It contains various images of the hotel which are slided in a conware fashion using an image slider. It also contains details about the rooms and a link to rooms page. It also shows free features that hotel provides to every visitor. Some reviews that hotel recieved over the years are also represented in a conware fashion. and finally a button which links to hotel booking facility.
-The image sliders (carousels) for rooms and reviews are draggable for the swift use of mobile users.
-Every page execpt booking page has a button which links redirects user to booking facility.
-Footer of every page contains some details about the hotel and address of the hotel along with the social links for the hotel.
-Scroll to top facility is also provided which redirects user to the top of the page along with a subtle animation when user clicks on a button. 
+## Tools
 
-* Explore Page - 
-It is a descriptive page for the various features hotel provides. New features can be easily added along with an image. The page follows principle of Minimalism and provides just the features nothing more.
+The website is built and developed using the [Hugo](https://gohugo.io/) static site generator.
 
-* Rooms Page - 
-This page provides all the details about the rooms available in the hotel. When you hover over any of the room the details of that room will pe presented to you with a linear transition which is achieved with pure CSS3.
+Instructions for installing Hugo can be found [here](https://gohugo.io/getting-started/installing/). Use the version of Hugo specified by the `HUGO_VERSION` environment variable in the [`netlify.toml`](./netlify.toml) configuration file, and make sure to install the "extended" version of Hugo with support for [Hugo Pipes](https://gohugo.io/hugo-pipes/introduction/).
 
-* Booking Page - 
-This is the page which has the booking faciltiy of the hotel. The form contains inputs for name, email-id, type of rooms, Number of rooms, and number of visitors. For number of rooms and visitors spinner buttons are provided (-,+) using a jquery plugin. For Date of Arrival and departure a datepicker jquery plugin is used.
+[backport](https://github.com/sqren/backport) is used to backport PRs into different release branches.
 
-* Contact Page - 
-This page can be used to contact the hotel by filling a simple form. It also serves purpose of providing the location of hotel in google maps. The location of hotel and zoom levels of the map can be easily modified.
+## Website content
+
+The content for the [Harbor blog](https://goharbor.io/blog) is in [`content/blog`](./content/blog), while the content for the Harbor documentation is in the [`docs`](./docs) folder.
+
+The latest (edge) version of the documentation lives in the [`docs`](./docs) folder on the `main` branch, and is always viewable on https://goharbor.io/docs/edge. Documentation for specific released versions lives in its own release branch, for example `release-2.1.0`.
+
+### Creating a PR
+
+In general, all PRs should be made against the `main` branch to update the edge version of the docs. If you are making a change that also affects released versions, indicate which release branches to update in your PR so a website maintainer can backport your changes.
+
+If you are making a change that is specific to a single released version of documentation, make a PR against that branch (`release-X`). For example, if you are fixing something specific to v2.1.0 you should make a PR against the release-2.1.0 branch only. If you are fixing something that impacts v2.1.0 docs and all future versions, you should make the PR against the `main` branch so the change can also be backported to the v2.1.0 docs.
+
+A preview of your changes is viewable through the Netlify preview linked in the PR tests. Use this to verify that your changes look good before asking the maintainers for a review. When updating the edge version make sure you add `/docs/edge/` to the preview URL to see your changes.
+
+### Creating release docs
+
+When creating docs for a new release, please create a branch with the format `release-X.Y.Z`.
+When you want to make these docs available through the dropdown menu, put the following into the `config.toml` file, above all other versions (versions are linked based on order in the config file):
+
+```
+[[params.versions]]
+harborversion = "X.Y.Z"
+helmversion = "1.3"
+branchname = "release-X.Y.Z"
+```
+
+As last step, update the [_index.md](https://github.com/goharbor/website/blob/master/docs/_index.md) file with the new version number and correct links.
 
 
-# Jquey Plugins used for the website
+After a release, update the [backport](https://github.com/sqren/backport) tool configuration file, `.backportrc.json`, with the new release branch name.
 
-* Image slider - Slick Slider - https://github.com/kenwheeler/slick
-* Scroll to top - Scrollup - https://github.com/markgoodyear/scrollup
-* Datepicker - pickmeup - https://github.com/nazar-pc/PickMeUp
-* Spinner buttons - Handle Counter - https://github.com/nick-running/handle-counter
+### CSS
 
-[lailabutikhotel](https://lailabutikhotel.github.io/lailahotelwebsite/)
+The CSS for the site is built from [Sass](https://sass-lang.com) inputs in the [`assets/sass`](./assets/sass) directory. There is also a small amount of JavaScript logic for the site in [`assets/js/app.js`](./assets/js/app.js).
+
+## Publishing the website
+
+The Harbor website is published automatically on the [Netlify](https://netlify.com) platform. Whenever changes are merged, the site is re-built and re-deployed, usually within about one minute.
+
+## Run the Harbor website locally
+
+### Step 1: Clone project
+
+```sh
+git clone https://github.com/goharbor/website.git
+cd website
+```
+
+## Step 2: Load documentation content
+
+The Markdown content for the Harbor [docs](https://goharbor.io/docs) is drawn from the [`docs`](./docs) folder and the `release-X` branches. To pull that content into your local website repo:
+
+```sh
+make prepare
+```
+
+This copies the `docs` directory and the `release-X` branches into this repo's [`content`](./content) folder, separated by versions, where it can be processed by Hugo.
+
+## Step 3: Install npm dependencies
+
+```sh
+npm i
+```
+
+## Step 4: Run Hugo in server mode
+
+```sh
+make serve
+```
+
+This starts up the local Hugo server on http://localhost:1313. As you make changes, the site refreshes automatically in your browser.
+
+## Checking links
+
+To run the link checker for the Harbor website:
+
+```sh
+make check-internal-links
+```
+
+This command builds the site (including drafts and future content), downloads the [htmltest](https://github.com/wjdp/htmltest) link checker into your local directory, and runs the checker in accordance with the configuration specified in [`.htmltest.yml`](./.htmltest.yml). Only internal links are checked and all errors are piped to stdout.
